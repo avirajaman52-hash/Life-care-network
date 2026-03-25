@@ -1,4 +1,9 @@
-const API_BASE_URL = 'http://localhost:5006/api';
+// Detect if running on localhost with a separate backend port
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+// In production (Vercel), frontend and backend share the same domain and the API is routed to /api
+const API_BASE_URL = isLocalhost && window.location.port !== '5006' 
+  ? 'http://localhost:5006/api' 
+  : '/api';
 
 // DOM Elements
 const authForm = document.getElementById('authForm');
