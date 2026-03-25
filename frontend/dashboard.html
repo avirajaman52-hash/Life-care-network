@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Beds - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient">
+    <nav class="navbar glass-effect">
+        <div class="nav-content">
+            <h1 class="brand-title nav-brand">LifeCare Networks</h1>
+            <div class="user-info">
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container dashboard-container">
+        <header class="dashboard-header">
+            <h2>Available Hospitals</h2>
+            <p>Real-time bed availability near you</p>
+        </header>
+
+        <div id="loader" class="loader" style="display: none;"></div>
+        
+        <div id="hospitalsGrid" class="hospitals-grid">
+            <!-- Hospital cards will be injected here -->
+        </div>
+    </main>
+
+    <!-- Hospital Details Modal -->
+    <div class="modal-overlay" id="hospitalModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3 class="modal-title" id="mHospitalName">Hospital Name</h3>
+            <div class="hospital-location" style="margin-bottom: 1.5rem;">
+                <span class="location-icon">📍</span>
+                <span id="mHospitalLocation">Location</span>
+            </div>
+            <div class="card-body" style="margin-bottom: 1.5rem;">
+                <span class="beds-label" style="font-size: 1.1rem;">Available Beds</span>
+                <div class="beds-count" id="mHospitalBeds">0</div>
+            </div>
+            <div style="border-top: 1px solid #eee; padding-top: 1.5rem; margin-bottom: 1.5rem;">
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">About Hospital</h4>
+                <p class="modal-desc" id="mHospitalDesc">
+                    This is a state-of-the-art healthcare facility providing 24/7 emergency services, specialized treatments, and compassionate patient care. Equipped with modern medical technology and experienced professionals.
+                </p>
+            </div>
+            <button class="modal-action" id="bookBedBtn">Book a Bed</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Check if logged in
+        if (!localStorage.getItem('userEmail')) {
+            window.location.href = 'index.html';
+        }
+        document.getElementById('userEmail').textContent = localStorage.getItem('userEmail');
+        
+        // Fetch hospitals immediately
+        fetchHospitals();
+    </script>
+</body>
+</html>
