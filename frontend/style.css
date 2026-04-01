@@ -1,6 +1,6 @@
 :root {
     --primary-light: #e8f5e9;
-    --primary: #4caf50;
+    --primary: #305131;
     --primary-dark: #2e7d32;
     --gradient-start: #e8f5e9;
     --gradient-end: #C8E6C9;
@@ -81,7 +81,7 @@ body {
 
 .tabs {
     display: flex;
-    background: rgba(255,255,255,0.5);
+    background: rgb(255, 255, 255);
     border-radius: var(--border-radius-md);
     padding: 5px;
     margin-bottom: 2rem;
@@ -104,7 +104,7 @@ body {
 .tab-btn.active {
     background: white;
     color: var(--primary-dark);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .auth-form {
@@ -130,7 +130,7 @@ body {
     padding: 1rem 1.25rem;
     border-radius: var(--border-radius-md);
     border: 2px solid transparent;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.853);
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition-smooth);
@@ -139,13 +139,13 @@ body {
 
 .input-group input:focus {
     border-color: var(--primary);
-    background: white;
+    background: rgb(83, 82, 82);
     box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
 }
 
 .submit-btn {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: rgb(107, 104, 104);
     padding: 1rem;
     border: none;
     border-radius: var(--border-radius-md);
@@ -317,7 +317,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .beds-count.low {
@@ -363,6 +363,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -374,6 +375,7 @@ body {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -381,15 +383,23 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Modal Styles */
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -486,11 +496,11 @@ body {
     .dashboard-header h2 {
         font-size: 2rem;
     }
-    
+
     .hospitals-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .user-email {
         display: none;
     }
